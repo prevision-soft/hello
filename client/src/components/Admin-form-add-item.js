@@ -7,11 +7,11 @@ class AdminFormAddItem extends Component {
     super(props);
     this.state = {
       modalEdit: false,
-      title: 'tteeest',
+      title: 'Product title',
       color: 'blue, red',
       size: 'XS, L',
       tags: 'Polos',
-      images: 'https://i.ytimg.com/vi/Bor5lkRyeGo/hqdefault.jpg, https://i.ytimg.com/vi/Bor5lkRyeGo/hqdefault.jpg',
+      images: 'https://i.ytimg.com/vi/Bor5lkRyeGo/hqdefault.jpg',
       description: '',
       price: 0,
       success: false
@@ -67,7 +67,10 @@ class AdminFormAddItem extends Component {
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">color available</Label>
-          <Input placeholder='example: color1, color2, color3' value={this.state.color} onChange={this.onChangeColor} />
+          <select placeholder='example: color1, color2, color3' value={this.state.color} onChange={this.onChangeColor}>
+            <option value="red">Red</option>
+            <option value="red">Red</option>
+          </select>
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">size available</Label>

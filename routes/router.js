@@ -22,7 +22,7 @@ router.get('/productsdata/:id', (req, res)=> {
     .catch(err => next(err))
 })
 
-router.put('/update/item', (req, res, next)=> {
+router.put('/update/item/:id', (req, res, next)=> {
   const { id, title, price, color, size, tags, images, description } = req.body
   ModelProducts.findById(id, (err, model) => {
     if (err) return handleError(err);
