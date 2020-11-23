@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Input, Form, FormGroup, Label, Container, Alert } from 'reactstrap';
+import { Button, Input, Form, FormGroup, Label, Container,DropdownMenu, DropdownItem, Alert } from 'reactstrap';
 import axios from 'axios';
+import { Multiselect } from "multiselect-react-dropdown";
+import "../css/multiSelectDropdown.css";
 
 class AdminFormAddItem extends Component {
   constructor(props) {
@@ -8,7 +10,7 @@ class AdminFormAddItem extends Component {
     this.state = {
       modalEdit: false,
       title: 'Product title',
-      color: 'blue, red',
+      color: ["blue", "red","black"],
       size: 'XS, L',
       tags: 'Polos',
       images: 'https://i.ytimg.com/vi/Bor5lkRyeGo/hqdefault.jpg',
@@ -16,6 +18,7 @@ class AdminFormAddItem extends Component {
       price: 0,
       success: false
     };
+    
   }
 
   toggle = () => {
@@ -23,6 +26,7 @@ class AdminFormAddItem extends Component {
       modalEdit: !this.state.modalEdit
     });
   }
+  
 
   onSubmit = (title, price, color, size, tags, images, description) => {
     axios.post('/api/add/item', {
@@ -35,7 +39,7 @@ class AdminFormAddItem extends Component {
       description
     })
     .then(() => {
-      window.location.reload(true)
+      window.location.reload(false)
     })
     .catch(function (error) {
       console.log(error);
@@ -67,18 +71,40 @@ class AdminFormAddItem extends Component {
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">color available</Label>
-          <select placeholder='example: color1, color2, color3' value={this.state.color} onChange={this.onChangeColor}>
-            <option value="red">Red</option>
-            <option value="red">Red</option>
-          </select>
-        </FormGroup>
+          <Input type="select" name="select" placeholder='example: color1, color2, color3' value={this.state.color} onChange={this.onChangeColor} id="">
+            <option value="red">red</option>
+            <option value="black">black</option>
+            <option value="blue">blue</option>
+            <option value="red, blue">red, blue</option>
+            <option value="red, black">red, black</option>
+            <option value="blue, black">blue, black</option>
+            <option value="red, blue, black">red, blue, black</option>
+          </Input> 
+          </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">size available</Label>
-          <Input placeholder='example: XS, L, XL' value={this.state.size} onChange={this.onChangesize} />
+          <Input type="select" name="select" placeholder='example: XS, L, XL' value={this.state.size} onChange={this.onChangesize} id="">
+            <option value="XS">XS</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XS, L">XS, L</option>
+            <option value="XS, XL">XS, XL</option>
+            <option value="L, XL">L, XL</option>
+            <option value="XS, L, XL">XS, L, XL</option>
+          </Input>
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">Category</Label>
-          <Input placeholder='example: Polo' value={this.state.tags} onChange={this.onChangeTags} />
+          <Input type="select" name="select" placeholder='example: Polo' value={this.state.tags} onChange={this.onChangeTags} id="" >
+          <option value="Polos">Polos</option>
+          <option value="Shirts">Shirts</option>
+          <option value="Pants">Pants</option>
+          <option value="Jackets">Jackets</option>
+          <option value="Dresses">Dresses</option>
+          <option value="Cardigans">Cardigans</option>
+          <option value="Tops">Tops</option>
+          <option value="Trench, Coats">Trench, Coats</option>
+        </Input>
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">Images</Label>

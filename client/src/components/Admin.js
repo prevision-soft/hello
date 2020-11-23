@@ -84,8 +84,8 @@ export default class Admin extends Component {
           <TabPane tabId="2">
             <AdminTablesItems stylesTab2={styles.tab2}/> 
           </TabPane>
-          <TabPane tabId="3" style={styles.tab3}>
-            <AdminFormAddItem />
+          <TabPane tabId="3" >
+            <AdminFormAddItem stylesTab3={styles.tab3}/>
           </TabPane>
           <TabPane tabId="4">
             <AdminHistoryLog stylesTab4={styles.tab4} />

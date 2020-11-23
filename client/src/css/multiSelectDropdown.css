@@ -1,0 +1,20 @@
+.displayBlock {
+    display: block;
+  }
+  .contents a {
+    display: block;
+    margin-bottom: 10px;
+    color: #45576b;
+    text-decoration: underline;
+  }
+  .otheroptions {
+    font-size: 14px;
+  }
+  
+  /* Overriding element hover */
+  .optionContainer li:hover,
+  .optionContainer .highlight {
+    background: red;
+    color: #fff;
+  }
+  /* Ends overriding */
