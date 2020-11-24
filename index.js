@@ -13,6 +13,14 @@ const env = process.env.NODE_ENV || 'development';
 
 mongoose.connect(env === 'development' ? config.DB_URI_DEV : config.DB_URI, {useUnifiedTopology: true, useNewUrlParser: true})
 
+// mongoose.connect(
+//   env.MONGO_URI || "mongodb://localhost/internship",
+//   {
+//     useNewUrlParser: true,
+//   },
+//   console.log("Mongodb connected")
+// );
+
 const app = express()
 app.use(compression())
 app.use(bodyParser.urlencoded({extended:true}))
