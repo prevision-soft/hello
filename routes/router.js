@@ -132,6 +132,17 @@ router.post('/signin', passport.authenticate('local', {session:false}), Authenti
 
 router.post('/signup', Authentication.signup);
 
+router.get('/query',(req,res) =>{
+  const tags ={ 
+    tags:req.body.data
+  };
 
+  
+  ModelProducts.find(tags,(err,data) =>{
+    if(err)
+      return res.status(404).json({error:'not found'});
+    res.status(200).json(data);
+  })
+})
 
 module.exports = router;

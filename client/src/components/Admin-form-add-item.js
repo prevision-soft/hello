@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Input, Form, FormGroup, Label, Container,DropdownMenu, DropdownItem, Alert } from 'reactstrap';
 import axios from 'axios';
-import { Multiselect } from "multiselect-react-dropdown";
-import "../css/multiSelectDropdown.css";
 
 class AdminFormAddItem extends Component {
   constructor(props) {
